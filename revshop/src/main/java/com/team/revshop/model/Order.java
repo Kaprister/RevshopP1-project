@@ -1,6 +1,7 @@
 package com.team.revshop.model;
 
-public class Order {
+import jakarta.persistence.Entity;
 
+public class Order {
 
 }

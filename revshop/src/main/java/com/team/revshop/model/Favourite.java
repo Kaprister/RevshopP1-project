@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "cart")
-public class Cart {
+@Table(name = "favorites")
+public class Favourite {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Auto-increment for cart_id
-    @Column(name = "cart_id")
-    private int cartId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment for favorite_id
+    @Column(name = "favorite_id")
+    private int favoriteId;
 
     @Column(name = "user_id", nullable = false)
     private int userId;
@@ -18,31 +18,27 @@ public class Cart {
     @Column(name = "product_id", nullable = false)
     private int productId;
 
-    @Column(name = "quantity", nullable = false, columnDefinition = "int default 1")
-    private int quantity;
-
     @Column(name = "added_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp addedAt;
 
     // Constructors
-    public Cart() {
+    public Favourite() {
     }
 
-    public Cart(int cartId, int userId, int productId, int quantity, Timestamp addedAt) {
-        this.cartId = cartId;
+    public Favourite(int favoriteId, int userId, int productId, Timestamp addedAt) {
+        this.favoriteId = favoriteId;
         this.userId = userId;
         this.productId = productId;
-        this.quantity = quantity;
         this.addedAt = addedAt;
     }
 
     // Getters and Setters
-    public int getCartId() {
-        return cartId;
+    public int getFavoriteId() {
+        return favoriteId;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setFavoriteId(int favoriteId) {
+        this.favoriteId = favoriteId;
     }
 
     public int getUserId() {
@@ -61,14 +57,6 @@ public class Cart {
         this.productId = productId;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public Timestamp getAddedAt() {
         return addedAt;
     }
@@ -80,11 +68,10 @@ public class Cart {
     // Override toString method for easy logging or debugging
     @Override
     public String toString() {
-        return "Cart{" +
-                "cartId=" + cartId +
+        return "Favourite{" +
+                "favoriteId=" + favoriteId +
                 ", userId=" + userId +
                 ", productId=" + productId +
-                ", quantity=" + quantity +
                 ", addedAt=" + addedAt +
                 '}';
     }
