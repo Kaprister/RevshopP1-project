@@ -1,42 +1,25 @@
 package com.team.revshop.controller;
 
-import com.team.revshop.model.Seller;
-import com.team.revshop.service.SellerService;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
-@RequestMapping("/api/v1/seller")
+@Controller
 public class SellerController {
-    @Autowired
-    private SellerService sellerService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<Seller> signUp(@RequestBody Seller seller){
-        try {
-            Seller registeredSeller = sellerService.signUp(seller);
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(registeredSeller);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
+    // Display the seller registration form
+    @GetMapping("/register/seller")
+    public String showSellerRegistrationForm(Model model) {
+        return "registerSeller"; // Return the name of the JSP page for seller registration
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Seller> login(@RequestBody Seller seller, HttpSession session){
-        try{
-            Seller loggedInSeller = sellerService.login(seller);
-            session.setAttribute("seller", loggedInSeller);
-            return ResponseEntity.status(HttpStatus.OK)
-            .body(loggedInSeller); // Return the custom response object
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-        }
+    // Handle the seller registration submission
+    @PostMapping("/register/seller")
+    public String registerSeller(@RequestParam String username, @RequestParam String password, Model model) {
+        // Logic for registering the seller
+        model.addAttribute("message", "Seller registered successfully!");
+        return "registrationSuccess"; // Redirect or show a success page
     }
 }

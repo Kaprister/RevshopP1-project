@@ -11,7 +11,7 @@
 	<groupId>com.team</groupId>
 	<artifactId>revshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>revshop</name>
+	<name>revshop</name> 
 	<description>Revshop ecommerce  project for Spring Boot</description>
 	
 	<properties>
