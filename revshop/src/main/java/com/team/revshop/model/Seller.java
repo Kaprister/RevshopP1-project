@@ -67,6 +67,8 @@ public class Seller {
 //    }
 
     // Override toString method for easy logging or debugging
+    
+    
     @Override
     public String toString() {
         return "Seller{" +
@@ -75,4 +77,6 @@ public class Seller {
                 ", businessAddress='" + businessAddress + '\'' +
                 '}';
     }
+
+	
 }

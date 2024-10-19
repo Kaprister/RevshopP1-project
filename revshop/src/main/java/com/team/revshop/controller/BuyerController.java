@@ -1,6 +1,7 @@
 package com.team.revshop.controller;
 
 import com.team.revshop.model.Buyer;
+import com.team.revshop.model.Seller;
 import com.team.revshop.service.BuyerService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

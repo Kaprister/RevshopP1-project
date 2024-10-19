@@ -11,7 +11,7 @@
 	<groupId>com.team</groupId>
 	<artifactId>revshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>revshop</name>
+	<name>revshop</name> 
 	<description>Revshop ecommerce  project for Spring Boot</description>
 	
 	<properties>
@@ -87,6 +87,11 @@
             <groupId>com.cloudinary</groupId>
             <artifactId>cloudinary-http44</artifactId>
             <version>1.31.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
         </dependency>
 
 

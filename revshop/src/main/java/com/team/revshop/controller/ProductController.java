@@ -5,9 +5,9 @@ import com.team.revshop.model.Product;
 import com.team.revshop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import java.util.List;
 
@@ -42,6 +42,7 @@ public class ProductController {
         }
     }
 
+
     // List all products by seller ID (using Path Variable)
     @GetMapping("/seller/list/{sellerId}")
     public ResponseEntity<List<Product>> listProductsBySellerId(@PathVariable("sellerId") int sellerId) {
@@ -53,7 +54,7 @@ public class ProductController {
         }
     }
 
-//    List all products from the database
+    //    List all products from the database
     @GetMapping("/list")
     public ResponseEntity<List<Product>> listAllProducts(){
         try{
