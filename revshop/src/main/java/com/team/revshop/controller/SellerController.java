@@ -2,13 +2,14 @@ package com.team.revshop.controller;
 
 import com.team.revshop.model.Seller;
 import com.team.revshop.service.SellerService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/seller")
+@RequestMapping("/api/v1/seller")
 public class SellerController {
     @Autowired
     private SellerService sellerService;
@@ -26,9 +27,10 @@ public class SellerController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Seller> login(@RequestBody Seller seller){
+    public ResponseEntity<Seller> login(@RequestBody Seller seller, HttpSession session){
         try{
             Seller loggedInSeller = sellerService.login(seller);
+            session.setAttribute("seller", loggedInSeller);
             return ResponseEntity.status(HttpStatus.OK)
             .body(loggedInSeller); // Return the custom response object
 
